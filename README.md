@@ -5,7 +5,6 @@ Test the candidate ability to industrialize, no data science skills or clusterin
 Data: Static geographical information of CityBike‘s stations in Brisbane (“Brisbane_CityBike.json”)
 
 ## Deliveries:
- The delivery of this test should contain:
 
 ### Code:
 In this repository, you can see all the code for the given test. 
@@ -19,6 +18,7 @@ Since I wanted to have a generic program, there is a possibility to configure th
 - number.partition=2  // number of partition of the dataframe that reads the json file
 - file.path=src/main/resources/Brisbane_CityBike.json  //input file path
 - output.path=KMeansModelOutput //output path for the result
+- you can also add all the other configurations from : https://spark.apache.org/docs/latest/configuration.html
 
  In order to launch the program you have two choices: 
  
@@ -43,4 +43,11 @@ Since I wanted to have a generic program, there is a possibility to configure th
  directory with the clustering result can be found in **KMeansModelOutput** and can be changed from **src/main/resources/init.properties** by changing **output.path**
 
 ### Backlog:
- The User Stories & Tasks (done or to do) related to industrializing this code.
+**DONE:** 
+- Read the json file and apply KMeans Algorithm
+- Script in order to be able to launch the jar on the cluster
+- Externalisation of the configuration of the program
+- Unit Tests
+
+ **TO DO:** 
+ Since this program will be launched in a daily basis routine, the code must generate a FAT Jar which contains Oozie coordinator and the Jar of the file with the Oozie coordinator can be pushed into Hadopp cluster and the coordinator can be launched automatically once we put the files on the cluster. Maybe in the futur, better to automatize with Jenkins pipeline. 
